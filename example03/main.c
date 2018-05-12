@@ -1,7 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
-#include <CL/cl.h>
+#ifdef __APPLE__
+    #include <OpenCL/cl.h>
+#else
+    #include <CL/cl.h>
+#endif
 #pragma OPENCL EXTENSION cl_khr_fp64 : enable
  
 const char *kernelSource =
